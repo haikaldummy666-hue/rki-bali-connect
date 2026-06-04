@@ -27,7 +27,7 @@ const categories = [
   { id: "tpq", label: "TPQ Anak" },
   { id: "ibu", label: "Majelis Ibu" },
   { id: "bapak", label: "Majelis Bapak" },
-  { id: "events", label: "Events" },
+  { id: "bangunan", label: "Bangunan" },
 ];
 
 const tagged = ASSETS.gallery;

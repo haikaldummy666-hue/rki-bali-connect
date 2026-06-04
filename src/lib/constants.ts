@@ -32,7 +32,8 @@ export const ASSETS = {
   gallery: [
     ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan TPQ RKI/*.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'tpq' })),
     ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{37,38}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'ibu' })),
-    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{39,40}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bapak' }))
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{39,40}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bapak' })),
+    ...(Object.values(import.meta.glob('@/assets/Foto Bangunan/Picture{2,3,4}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bangunan' }))
   ],
   preview: {
     "/tentang-kami": previewTentang,
