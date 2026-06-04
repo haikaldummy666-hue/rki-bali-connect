@@ -65,7 +65,8 @@ function DonasiPage() {
     defaultValues: { name: "", email: "", amount: 100_000, message: "" },
   });
 
-  const onSubmit = (v: FormValues) => {
+  const onSubmit = (raw: FormValues) => {
+    const v = schema.parse(raw) as FormOutput;
     const text = [
       "Assalamu'alaikum, saya ingin berdonasi ke RKI Bali.",
       `Nama: ${v.name}`,
