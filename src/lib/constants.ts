@@ -114,28 +114,28 @@ export const DONOR_LIST = [
 export const TIERS = [
   {
     amount: 50_000,
-    title: "Sahabat",
-    benefit: "Perlengkapan belajar santri (Iqro, buku tulis, pensil).",
+    title: "SAHABAT",
+    benefit: "Menyediakan perlengkapan belajar untuk 1 santri (Iqro, buku tulis, dan alat tulis).",
   },
   {
     amount: 100_000,
-    title: "Penggerak",
-    benefit: "Kebutuhan operasional satu santri selama sebulan.",
+    title: "PENGGERAK",
+    benefit: "Mendukung kebutuhan operasional 1 santri selama 1 bulan.",
   },
   {
     amount: 250_000,
-    title: "Pembina",
-    benefit: "Mendukung pembinaan mingguan satu majelis taklim.",
+    title: "PEMBINA",
+    benefit: "Mendukung pembinaan mingguan 1 majelis taklim.",
   },
   {
     amount: 500_000,
-    title: "Pengasuh",
-    benefit: "Mendukung satu kelas TPQ — honor & operasional.",
+    title: "PENGASUH",
+    benefit: "Mendukung honor pengajar & operasional 1 kelas TPQ.",
   },
   {
     amount: 1_000_000,
-    title: "Donatur Utama",
-    benefit: "Menutup defisit & menjaga keberlangsungan satu cabang RKI.",
+    title: "DONATUR UTAMA",
+    benefit: "Menutup defisit operasional dan menjaga keberlangsungan 1 cabang RKI.",
     featured: true,
   },
 ];
