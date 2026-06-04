@@ -6,20 +6,19 @@ import { Button } from "@/components/ui/button";
 import { TIERS, formatIDR } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
+
 export function DonationTiers({ compact = false }: { compact?: boolean }) {
   return (
     <section className={cn("container-rki", compact ? "py-12" : "py-20 md:py-28")}>
       {!compact && (
         <SectionHeading
-          eyebrow="Tier Donasi"
-          title="Pilih cara Anda berkontribusi."
-          description="Donatur tetap menjadi tulang punggung keberlangsungan RKI Bali. Pilih nominal yang nyaman bagi Anda."
+          eyebrow="Tali Kasih"
+          title="Menjadi bagian dari kebaikan yang mengalir."
+          description="Mari bersama menjaga cahaya Al-Qur'an dan memberdayakan umat. Silakan pilih bentuk kontribusi mulia Anda."
         />
       )}
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-        {TIERS.map((t, i) => (
-          <motion.div
             key={t.amount}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +69,7 @@ export function DonationTiers({ compact = false }: { compact?: boolean }) {
               >
                 <Link to="/donasi" search={{ amount: t.amount }}>
                   <Heart className="mr-1.5 h-3.5 w-3.5 fill-current" />
-                  Donasi
+                  Kontribusi
                 </Link>
               </Button>
             </div>

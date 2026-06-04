@@ -65,17 +65,16 @@ export function Footer() {
 
           <div>
             <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-gold">
-              Dukung Kami
+              Mari Berkontribusi
             </h4>
             <p className="mt-5 text-sm leading-relaxed text-primary-foreground/75">
-              Defisit operasional kami <strong className="text-gold">Rp5,55 juta/bulan</strong>.
-              Donasi tetap Anda — sekecil apa pun — menjaga rumah ini tetap menyala untuk para santri.
+              Setiap kontribusi Anda menjadi amal jariyah yang terus mengalir. Mari bersama menjaga cahaya Al-Qur'an untuk generasi mendatang.
             </p>
             <Link
               to="/donasi"
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-gold px-5 py-2.5 text-sm font-semibold text-gold-foreground transition-transform hover:scale-[1.03]"
             >
-              Jadi Donatur Tetap
+              Menjadi Bagian Kebaikan
             </Link>
           </div>
         </div>

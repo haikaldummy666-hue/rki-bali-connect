@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Receipt, Users, CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { DONOR_LIST, formatIDR } from "@/lib/constants";
+import { DONOR_LIST, FINANCE, formatIDR } from "@/lib/constants";
 
 export const Route = createFileRoute("/transparansi")({
   head: () => ({
@@ -50,6 +50,42 @@ function TransparansiPage() {
             Kami berkomitmen menyalurkan setiap titipan donasi Anda tepat sasaran. Berikut adalah fokus penyaluran operasional bulanan kami.
           </p>
         </motion.div>
+      </section>
+
+      {/* Financial Summary */}
+      <section className="container-rki pb-12">
+        <div className="grid gap-5 md:grid-cols-3">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="rounded-3xl bg-card p-6 ring-1 ring-border shadow-soft"
+          >
+            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Pemasukan Rutin</div>
+            <div className="mt-2 font-display text-2xl font-bold text-primary">{formatIDR(FINANCE.income)}</div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-3xl bg-card p-6 ring-1 ring-border shadow-soft"
+          >
+            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Kebutuhan Operasional</div>
+            <div className="mt-2 font-display text-2xl font-bold text-gold">{formatIDR(FINANCE.expense)}</div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="rounded-3xl bg-card p-6 ring-1 ring-border shadow-soft"
+          >
+            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Kekurangan (Defisit)</div>
+            <div className="mt-2 font-display text-2xl font-bold text-foreground">{formatIDR(FINANCE.deficit)}</div>
+          </motion.div>
+        </div>
       </section>
 
       {/* Expense breakdown / Allocations */}

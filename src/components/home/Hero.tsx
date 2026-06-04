@@ -42,7 +42,7 @@ export function Hero() {
           >
             Rumah Kajian Islami (RKI) Bali menghadirkan pendidikan Al-Qur'an{" "}
             <strong className="text-foreground">gratis</strong> untuk anak-anak dhuafa dan ibu
-            muallaf di Denpasar. Dukungan Anda menjaga rumah ini tetap menyala.
+            muallaf di Denpasar. Mari bersama mewariskan ilmu dan mengalirkan pahala jariyah yang abadi.
           </motion.p>
 
           <motion.div
@@ -58,7 +58,7 @@ export function Hero() {
             >
               <Link to="/donasi">
                 <Heart className="mr-2 h-5 w-5 fill-current" />
-                Jadi Donatur Tetap
+                Mari Berkontribusi
               </Link>
             </Button>
             <Button

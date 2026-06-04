@@ -100,10 +100,10 @@ function DonasiPage() {
             Donasi
           </span>
           <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-foreground text-balance md:text-5xl">
-            Donasi Anda menyalakan harapan.
+            Mari Menjadi Bagian dari Kebaikan.
           </h1>
           <p className="mt-5 text-base text-muted-foreground md:text-lg text-balance">
-            Pilih tier yang nyaman, transfer langsung ke rekening yayasan, lalu konfirmasi via WhatsApp.
+            Kontribusi Anda adalah amal jariyah yang akan terus mengalir bersama setiap huruf Al-Qur'an yang dipelajari santri.
           </p>
         </motion.div>
       </section>
