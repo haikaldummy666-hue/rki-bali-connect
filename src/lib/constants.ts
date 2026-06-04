@@ -2,21 +2,13 @@ import heroImg from "@/assets/Foto Bangunan/Picture4.webp";
 import programTpq from "@/assets/Foto Kegiatan TPQ RKI/Picture10.webp";
 import programIbu from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture38.webp";
 import programBapak from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture37.webp";
-import gallery1 from "@/assets/Foto Kegiatan TPQ RKI/Picture11.webp";
-import gallery2 from "@/assets/Foto Kegiatan TPQ RKI/Picture12.webp";
-import gallery3 from "@/assets/Foto Kegiatan TPQ RKI/Picture13.webp";
-import gallery4 from "@/assets/Foto Kegiatan TPQ RKI/Picture14.webp";
-import gallery5 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture37.webp";
-import gallery6 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture38.webp";
-import gallery7 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture39.webp";
-import gallery8 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture40.webp";
+
 import previewTentang from "@/assets/Foto Bangunan/Picture2.webp";
 import previewProgram from "@/assets/Foto Kegiatan TPQ RKI/Picture10.webp";
 import previewTransparansi from "@/assets/Foto Bangunan/Picture3.webp";
 import previewGaleri from "@/assets/Foto Kegiatan TPQ RKI/Picture15.webp";
 import previewDonasi from "@/assets/Foto Bangunan/Picture4.webp";
 import logoImg from "@/assets/logo.png";
-
 export const ORG = {
   name: "Rumah Kajian Islami Bali",
   short: "RKI Bali",
@@ -37,7 +29,11 @@ export const ASSETS = {
   hero: heroImg,
   logo: logoImg,
   programs: { tpq: programTpq, ibu: programIbu, bapak: programBapak },
-  gallery: [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8],
+  gallery: [
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan TPQ RKI/*.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'tpq' })),
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{37,38}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'ibu' })),
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{39,40}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bapak' }))
+  ],
   preview: {
     "/tentang-kami": previewTentang,
     "/program": previewProgram,

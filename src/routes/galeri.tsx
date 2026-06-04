@@ -30,10 +30,7 @@ const categories = [
   { id: "events", label: "Events" },
 ];
 
-const tagged = ASSETS.gallery.map((src, i) => ({
-  src,
-  cat: ["tpq", "tpq", "events", "events", "tpq", "ibu", "bapak", "ibu"][i] ?? "tpq",
-}));
+const tagged = ASSETS.gallery;
 
 function GaleriPage() {
   const [active, setActive] = useState("all");

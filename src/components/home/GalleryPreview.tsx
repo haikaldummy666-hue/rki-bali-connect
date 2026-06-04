@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ASSETS } from "@/lib/constants";
 
 export function GalleryPreview() {
-  const images = ASSETS.gallery.slice(0, 6);
+  const images = ASSETS.gallery.slice(0, 6).map(g => g.src);
   return (
     <section className="bg-cream py-20 md:py-28">
       <div className="container-rki">
