@@ -1,20 +1,20 @@
-import heroImg from "@/assets/hero.jpg";
-import programTpq from "@/assets/program-tpq.jpg";
-import programIbu from "@/assets/program-ibu.jpg";
-import programBapak from "@/assets/program-bapak.jpg";
-import gallery1 from "@/assets/gallery-1.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
-import gallery3 from "@/assets/gallery-3.jpg";
-import gallery4 from "@/assets/gallery-4.jpg";
-import gallery5 from "@/assets/gallery-5.jpg";
-import gallery6 from "@/assets/gallery-6.jpg";
-import gallery7 from "@/assets/gallery-7.jpg";
-import gallery8 from "@/assets/gallery-8.jpg";
-import previewTentang from "@/assets/preview-tentang.jpg";
-import previewProgram from "@/assets/preview-program.jpg";
-import previewTransparansi from "@/assets/preview-transparansi.jpg";
-import previewGaleri from "@/assets/preview-galeri.jpg";
-import previewDonasi from "@/assets/preview-donasi.jpg";
+import heroImg from "@/assets/Foto Bangunan/Picture4.webp";
+import programTpq from "@/assets/Foto Kegiatan TPQ RKI/Picture10.webp";
+import programIbu from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture38.webp";
+import programBapak from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture37.webp";
+import gallery1 from "@/assets/Foto Kegiatan TPQ RKI/Picture11.webp";
+import gallery2 from "@/assets/Foto Kegiatan TPQ RKI/Picture12.webp";
+import gallery3 from "@/assets/Foto Kegiatan TPQ RKI/Picture13.webp";
+import gallery4 from "@/assets/Foto Kegiatan TPQ RKI/Picture14.webp";
+import gallery5 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture37.webp";
+import gallery6 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture38.webp";
+import gallery7 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture39.webp";
+import gallery8 from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture40.webp";
+import previewTentang from "@/assets/Foto Bangunan/Picture2.webp";
+import previewProgram from "@/assets/Foto Kegiatan TPQ RKI/Picture10.webp";
+import previewTransparansi from "@/assets/Foto Bangunan/Picture3.webp";
+import previewGaleri from "@/assets/Foto Kegiatan TPQ RKI/Picture15.webp";
+import previewDonasi from "@/assets/Foto Bangunan/Picture4.webp";
 import logoImg from "@/assets/logo.png";
 
 export const ORG = {
