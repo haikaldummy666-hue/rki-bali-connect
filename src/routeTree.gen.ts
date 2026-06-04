@@ -9,8 +9,38 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TransparansiRouteImport } from './routes/transparansi'
+import { Route as TentangKamiRouteImport } from './routes/tentang-kami'
+import { Route as ProgramRouteImport } from './routes/program'
+import { Route as GaleriRouteImport } from './routes/galeri'
+import { Route as DonasiRouteImport } from './routes/donasi'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TransparansiRoute = TransparansiRouteImport.update({
+  id: '/transparansi',
+  path: '/transparansi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TentangKamiRoute = TentangKamiRouteImport.update({
+  id: '/tentang-kami',
+  path: '/tentang-kami',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgramRoute = ProgramRouteImport.update({
+  id: '/program',
+  path: '/program',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GaleriRoute = GaleriRouteImport.update({
+  id: '/galeri',
+  path: '/galeri',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DonasiRoute = DonasiRouteImport.update({
+  id: '/donasi',
+  path: '/donasi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +49,102 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/donasi': typeof DonasiRoute
+  '/galeri': typeof GaleriRoute
+  '/program': typeof ProgramRoute
+  '/tentang-kami': typeof TentangKamiRoute
+  '/transparansi': typeof TransparansiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/donasi': typeof DonasiRoute
+  '/galeri': typeof GaleriRoute
+  '/program': typeof ProgramRoute
+  '/tentang-kami': typeof TentangKamiRoute
+  '/transparansi': typeof TransparansiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/donasi': typeof DonasiRoute
+  '/galeri': typeof GaleriRoute
+  '/program': typeof ProgramRoute
+  '/tentang-kami': typeof TentangKamiRoute
+  '/transparansi': typeof TransparansiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/donasi'
+    | '/galeri'
+    | '/program'
+    | '/tentang-kami'
+    | '/transparansi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/donasi'
+    | '/galeri'
+    | '/program'
+    | '/tentang-kami'
+    | '/transparansi'
+  id:
+    | '__root__'
+    | '/'
+    | '/donasi'
+    | '/galeri'
+    | '/program'
+    | '/tentang-kami'
+    | '/transparansi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DonasiRoute: typeof DonasiRoute
+  GaleriRoute: typeof GaleriRoute
+  ProgramRoute: typeof ProgramRoute
+  TentangKamiRoute: typeof TentangKamiRoute
+  TransparansiRoute: typeof TransparansiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/transparansi': {
+      id: '/transparansi'
+      path: '/transparansi'
+      fullPath: '/transparansi'
+      preLoaderRoute: typeof TransparansiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tentang-kami': {
+      id: '/tentang-kami'
+      path: '/tentang-kami'
+      fullPath: '/tentang-kami'
+      preLoaderRoute: typeof TentangKamiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/program': {
+      id: '/program'
+      path: '/program'
+      fullPath: '/program'
+      preLoaderRoute: typeof ProgramRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/galeri': {
+      id: '/galeri'
+      path: '/galeri'
+      fullPath: '/galeri'
+      preLoaderRoute: typeof GaleriRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/donasi': {
+      id: '/donasi'
+      path: '/donasi'
+      fullPath: '/donasi'
+      preLoaderRoute: typeof DonasiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +157,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DonasiRoute: DonasiRoute,
+  GaleriRoute: GaleriRoute,
+  ProgramRoute: ProgramRoute,
+  TentangKamiRoute: TentangKamiRoute,
+  TransparansiRoute: TransparansiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
