@@ -35,11 +35,16 @@ export const Route = createFileRoute("/donasi")({
 const schema = z.object({
   name: z.string().trim().min(2, "Nama minimal 2 huruf").max(80),
   email: z.string().trim().email("Email tidak valid").max(120),
-  amount: z.coerce.number({ message: "Masukkan nominal" }).int().min(10_000, "Minimal Rp10.000").max(1_000_000_000),
+  amount: z
+    .union([z.string(), z.number()])
+    .transform((v) => (typeof v === "string" ? Number(v) : v))
+    .refine((n) => Number.isFinite(n) && n >= 10_000, { message: "Minimal Rp10.000" })
+    .refine((n) => n <= 1_000_000_000, { message: "Nominal terlalu besar" }),
   message: z.string().trim().max(500).optional(),
 });
 
-type FormValues = z.infer<typeof schema>;
+type FormValues = z.input<typeof schema>;
+type FormOutput = z.output<typeof schema>;
 
 function DonasiPage() {
   const [copied, setCopied] = useState(false);
