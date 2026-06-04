@@ -19,6 +19,8 @@ export function DonationTiers({ compact = false }: { compact?: boolean }) {
       )}
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {TIERS.map((t, i) => (
+          <motion.div
             key={t.amount}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
