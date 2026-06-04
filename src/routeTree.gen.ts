@@ -14,6 +14,7 @@ import { Route as TentangKamiRouteImport } from './routes/tentang-kami'
 import { Route as ProgramRouteImport } from './routes/program'
 import { Route as GaleriRouteImport } from './routes/galeri'
 import { Route as DonasiRouteImport } from './routes/donasi'
+import { Route as AdmindaifoundationRouteImport } from './routes/admindaifoundation'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TransparansiRoute = TransparansiRouteImport.update({
@@ -41,6 +42,11 @@ const DonasiRoute = DonasiRouteImport.update({
   path: '/donasi',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdmindaifoundationRoute = AdmindaifoundationRouteImport.update({
+  id: '/admindaifoundation',
+  path: '/admindaifoundation',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -49,6 +55,7 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admindaifoundation': typeof AdmindaifoundationRoute
   '/donasi': typeof DonasiRoute
   '/galeri': typeof GaleriRoute
   '/program': typeof ProgramRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admindaifoundation': typeof AdmindaifoundationRoute
   '/donasi': typeof DonasiRoute
   '/galeri': typeof GaleriRoute
   '/program': typeof ProgramRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admindaifoundation': typeof AdmindaifoundationRoute
   '/donasi': typeof DonasiRoute
   '/galeri': typeof GaleriRoute
   '/program': typeof ProgramRoute
@@ -76,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admindaifoundation'
     | '/donasi'
     | '/galeri'
     | '/program'
@@ -84,6 +94,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admindaifoundation'
     | '/donasi'
     | '/galeri'
     | '/program'
@@ -92,6 +103,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admindaifoundation'
     | '/donasi'
     | '/galeri'
     | '/program'
@@ -101,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdmindaifoundationRoute: typeof AdmindaifoundationRoute
   DonasiRoute: typeof DonasiRoute
   GaleriRoute: typeof GaleriRoute
   ProgramRoute: typeof ProgramRoute
@@ -145,6 +158,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DonasiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admindaifoundation': {
+      id: '/admindaifoundation'
+      path: '/admindaifoundation'
+      fullPath: '/admindaifoundation'
+      preLoaderRoute: typeof AdmindaifoundationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -157,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdmindaifoundationRoute: AdmindaifoundationRoute,
   DonasiRoute: DonasiRoute,
   GaleriRoute: GaleriRoute,
   ProgramRoute: ProgramRoute,

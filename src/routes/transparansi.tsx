@@ -3,8 +3,10 @@ import { motion } from "framer-motion";
 import { TrendingUp, TrendingDown, AlertCircle, Receipt, Users } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { DONOR_LIST, FINANCE, formatIDR } from "@/lib/constants";
+import { getFinanceData } from "@/lib/api/finance.functions";
 
 export const Route = createFileRoute("/transparansi")({
+  loader: async () => await getFinanceData(),
   head: () => ({
     meta: [
       { title: "Transparansi Keuangan — RKI Bali" },
@@ -22,14 +24,17 @@ export const Route = createFileRoute("/transparansi")({
   component: TransparansiPage,
 });
 
-const summary = [
-  { label: "Pemasukan / bulan", value: FINANCE.income, icon: TrendingUp, color: "text-primary", bg: "bg-primary/10" },
-  { label: "Pengeluaran / bulan", value: FINANCE.expense, icon: TrendingDown, color: "text-gold", bg: "bg-gold/15" },
-  { label: "Defisit / bulan", value: FINANCE.deficit, icon: AlertCircle, color: "text-destructive", bg: "bg-destructive/10" },
-];
-
 function TransparansiPage() {
-  const coverPct = Math.round((FINANCE.income / FINANCE.expense) * 100);
+  const dynamicFinance = Route.useLoaderData();
+  const currentFinance = { ...FINANCE, ...dynamicFinance };
+  
+  const summary = [
+    { label: "Pemasukan / bulan", value: currentFinance.income, icon: TrendingUp, color: "text-primary", bg: "bg-primary/10" },
+    { label: "Pengeluaran / bulan", value: currentFinance.expense, icon: TrendingDown, color: "text-gold", bg: "bg-gold/15" },
+    { label: "Defisit / bulan", value: currentFinance.deficit, icon: AlertCircle, color: "text-destructive", bg: "bg-destructive/10" },
+  ];
+
+  const coverPct = Math.round((currentFinance.income / currentFinance.expense) * 100);
   return (
     <>
       <section className="container-rki pt-12 pb-12 md:pt-20 md:pb-16">
@@ -101,8 +106,8 @@ function TransparansiPage() {
       <section className="container-rki py-12">
         <SectionHeading eyebrow="Rincian Pengeluaran" title="Ke mana donasi Anda disalurkan." align="left" />
         <div className="overflow-hidden rounded-3xl bg-card shadow-soft ring-1 ring-border">
-          {FINANCE.expenseBreakdown.map((row, i) => {
-            const pct = (row.amount / FINANCE.expense) * 100;
+          {currentFinance.expenseBreakdown.map((row, i) => {
+            const pct = (row.amount / currentFinance.expense) * 100;
             return (
               <motion.div
                 key={row.label}

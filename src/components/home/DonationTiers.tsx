@@ -68,7 +68,7 @@ export function DonationTiers({ compact = false }: { compact?: boolean }) {
                     : "bg-primary text-primary-foreground hover:bg-primary/90",
                 )}
               >
-                <Link to="/donasi">
+                <Link to="/donasi" search={{ amount: t.amount }}>
                   <Heart className="mr-1.5 h-3.5 w-3.5 fill-current" />
                   Donasi
                 </Link>

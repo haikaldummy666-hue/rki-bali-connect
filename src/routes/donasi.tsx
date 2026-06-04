@@ -15,6 +15,9 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ORG, formatIDR } from "@/lib/constants";
 
 export const Route = createFileRoute("/donasi")({
+  validateSearch: z.object({
+    amount: z.number().optional().catch(undefined),
+  }),
   head: () => ({
     meta: [
       { title: "Donasi — RKI Bali" },
@@ -60,9 +63,10 @@ function DonasiPage() {
     }
   };
 
+  const { amount } = Route.useSearch();
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
-    defaultValues: { name: "", email: "", amount: 100_000, message: "" },
+    defaultValues: { name: "", email: "", amount: amount || 100_000, message: "" },
   });
 
   const onSubmit = (raw: FormValues) => {
