@@ -1,22 +1,20 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { TrendingUp, TrendingDown, AlertCircle, Receipt, Users } from "lucide-react";
+import { Receipt, Users, CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { DONOR_LIST, FINANCE, formatIDR } from "@/lib/constants";
-import { getFinanceData } from "@/lib/api/finance.functions";
+import { DONOR_LIST, formatIDR } from "@/lib/constants";
 
 export const Route = createFileRoute("/transparansi")({
-  loader: async () => await getFinanceData(),
   head: () => ({
     meta: [
-      { title: "Transparansi Keuangan — RKI Bali" },
+      { title: "Transparansi Penyaluran — RKI Bali" },
       {
         name: "description",
         content:
-          "Laporan keuangan bulanan RKI Bali: pemasukan Rp7,45 juta, pengeluaran Rp13 juta, defisit Rp5,55 juta. Setiap rupiah dilaporkan amanah.",
+          "Laporan penyaluran donasi RKI Bali. Setiap rupiah dilaporkan amanah untuk santri dan jamaah.",
       },
-      { property: "og:title", content: "Transparansi Keuangan — RKI Bali" },
-      { property: "og:description", content: "Pemasukan, pengeluaran, dan defisit bulanan operasional RKI Bali." },
+      { property: "og:title", content: "Transparansi Penyaluran — RKI Bali" },
+      { property: "og:description", content: "Laporan penyaluran donasi RKI Bali secara amanah." },
       { property: "og:url", content: "/transparansi" },
     ],
     links: [{ rel: "canonical", href: "/transparansi" }],
@@ -24,17 +22,15 @@ export const Route = createFileRoute("/transparansi")({
   component: TransparansiPage,
 });
 
-function TransparansiPage() {
-  const dynamicFinance = Route.useLoaderData();
-  const currentFinance = { ...FINANCE, ...dynamicFinance };
-  
-  const summary = [
-    { label: "Pemasukan / bulan", value: currentFinance.income, icon: TrendingUp, color: "text-primary", bg: "bg-primary/10" },
-    { label: "Pengeluaran / bulan", value: currentFinance.expense, icon: TrendingDown, color: "text-gold", bg: "bg-gold/15" },
-    { label: "Defisit / bulan", value: currentFinance.deficit, icon: AlertCircle, color: "text-destructive", bg: "bg-destructive/10" },
-  ];
+const allocations = [
+  "Honor Pengajar (3 cabang RKI Denpasar)",
+  "Sewa & Operasional Tempat Belajar",
+  "Konsumsi & Snack Harian Santri",
+  "Perlengkapan Belajar (Iqro, buku, alat tulis)",
+  "Kegiatan Insidental & Hari Besar Islam",
+];
 
-  const coverPct = Math.round((currentFinance.income / currentFinance.expense) * 100);
+function TransparansiPage() {
   return (
     <>
       <section className="container-rki pt-12 pb-12 md:pt-20 md:pb-16">
@@ -51,102 +47,39 @@ function TransparansiPage() {
             Amanah lahir dari kejujuran.
           </h1>
           <p className="mt-5 text-base text-muted-foreground md:text-lg text-balance">
-            Realita keuangan kami — pemasukan, pengeluaran, dan defisit bulanan — kami buka apa adanya.
+            Kami berkomitmen menyalurkan setiap titipan donasi Anda tepat sasaran. Berikut adalah fokus penyaluran operasional bulanan kami.
           </p>
         </motion.div>
       </section>
 
-      {/* Summary */}
-      <section className="container-rki pb-12">
-        <div className="grid gap-5 md:grid-cols-3">
-          {summary.map((it, i) => (
+      {/* Expense breakdown / Allocations */}
+      <section className="container-rki py-12">
+        <SectionHeading eyebrow="Fokus Penyaluran" title="Ke mana donasi Anda disalurkan." align="left" />
+        <div className="overflow-hidden rounded-3xl bg-card shadow-soft ring-1 ring-border">
+          {allocations.map((label, i) => (
             <motion.div
-              key={it.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              key={label}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="rounded-3xl bg-card p-7 shadow-soft ring-1 ring-border"
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+              className="border-b border-border p-5 last:border-0 md:p-6"
             >
-              <div className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl ${it.bg}`}>
-                <it.icon className={`h-6 w-6 ${it.color}`} />
-              </div>
-              <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{it.label}</div>
-              <div className={`mt-1 font-display text-2xl font-bold md:text-3xl ${it.color}`}>
-                {formatIDR(it.value)}
+              <div className="flex items-center gap-3">
+                <CheckCircle2 className="h-5 w-5 text-primary" />
+                <span className="font-medium text-foreground text-lg">{label}</span>
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-6 rounded-3xl bg-primary p-6 text-primary-foreground md:p-8"
-        >
-          <div className="flex items-center justify-between text-sm">
-            <span className="font-medium">Donatur saat ini menutup</span>
-            <span className="font-display text-xl font-bold text-gold">{coverPct}%</span>
-          </div>
-          <div className="mt-3 h-2.5 overflow-hidden rounded-full bg-primary-foreground/15">
-            <motion.div
-              initial={{ width: 0 }}
-              whileInView={{ width: `${coverPct}%` }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
-              className="h-full rounded-full bg-gold"
-            />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Expense breakdown */}
-      <section className="container-rki py-12">
-        <SectionHeading eyebrow="Rincian Pengeluaran" title="Ke mana donasi Anda disalurkan." align="left" />
-        <div className="overflow-hidden rounded-3xl bg-card shadow-soft ring-1 ring-border">
-          {currentFinance.expenseBreakdown.map((row, i) => {
-            const pct = (row.amount / currentFinance.expense) * 100;
-            return (
-              <motion.div
-                key={row.label}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="border-b border-border p-5 last:border-0 md:p-6"
-              >
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <Receipt className="h-4 w-4 text-primary" />
-                    <span className="font-medium text-foreground">{row.label}</span>
-                  </div>
-                  <span className="font-display font-bold text-foreground tabular-nums">
-                    {formatIDR(row.amount)}
-                  </span>
-                </div>
-                <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-muted">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    whileInView={{ width: `${pct}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 + i * 0.05 }}
-                    className="h-full rounded-full bg-primary"
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </section>
 
       {/* Donor list */}
       <section className="container-rki py-12 pb-20 md:pb-28">
         <SectionHeading
-          eyebrow="Donatur Tetap"
-          title="Mereka menjaga rumah ini tetap menyala."
-          description="Sebagian donatur yang telah memberi kepercayaan. Semoga Allah membalas dengan keberkahan."
+          eyebrow="Keluarga RKI Bali"
+          title="Mereka yang membersamai langkah ini."
+          description="Sebagian donatur yang telah mengamanahkan hartanya. Semoga Allah membalas dengan keberkahan berlipat ganda."
           align="left"
         />
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

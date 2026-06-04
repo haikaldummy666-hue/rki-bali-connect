@@ -1,7 +1,7 @@
 import heroImg from "@/assets/Foto Bangunan/Picture4.webp";
 import programTpq from "@/assets/Foto Kegiatan TPQ RKI/Picture10.webp";
 import programIbu from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture38.webp";
-import programBapak from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture37.webp";
+import programBapak from "@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture39.webp";
 
 import previewTentang from "@/assets/Foto Bangunan/Picture2.webp";
 import previewProgram from "@/assets/Foto Kegiatan TPQ RKI/Picture10.webp";
@@ -132,7 +132,7 @@ export const TIERS = [
   {
     amount: 1_000_000,
     title: "DONATUR UTAMA",
-    benefit: "Menutup defisit operasional dan menjaga keberlangsungan 1 cabang RKI.",
+    benefit: "Mendukung operasional penuh dan menjaga keberlangsungan 1 cabang RKI.",
     featured: true,
   },
 ];
@@ -193,7 +193,7 @@ export const FOOTER_PREVIEWS: Record<string, { title: string; description: strin
   "/transparansi": {
     title: "Transparansi",
     description:
-      "Kami terbuka tentang pemasukan, pengeluaran, dan defisit bulanan sebesar Rp5,55 juta. Setiap rupiah donasi dilaporkan dengan amanah.",
+      "Setiap rupiah donasi dilaporkan dengan amanah. Kami berkomitmen menyalurkan kontribusi Anda tepat sasaran untuk program pendidikan santri.",
   },
   "/galeri": {
     title: "Galeri Kegiatan",
