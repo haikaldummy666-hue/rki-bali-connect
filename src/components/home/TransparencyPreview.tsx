@@ -31,7 +31,7 @@ export function TransparencyPreview() {
   return (
     <section className="container-rki py-20 md:py-28">
       <SectionHeading
-        eyebrow="Transparansi Penyaluran"
+        eyebrow="Dampak & Penyaluran Donasi"
         title="Jejak kebaikan Anda, nyata dampaknya."
         description="Setiap rupiah yang diamanahkan dikelola dan disalurkan secara profesional untuk kemaslahatan umat."
       />

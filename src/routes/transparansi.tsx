@@ -2,18 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Receipt, Users, CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { DONOR_LIST, FINANCE, formatIDR } from "@/lib/constants";
+import { DONOR_LIST, formatIDR } from "@/lib/constants";
 
 export const Route = createFileRoute("/transparansi")({
   head: () => ({
     meta: [
-      { title: "Transparansi Penyaluran — RKI Bali" },
+      { title: "Dampak & Penyaluran Donasi — RKI Bali" },
       {
         name: "description",
         content:
-          "Laporan penyaluran donasi RKI Bali. Setiap rupiah dilaporkan amanah untuk santri dan jamaah.",
+          "Laporan penyaluran donasi RKI Bali. Setiap rupiah disalurkan dengan penuh amanah untuk santri dan jamaah.",
       },
-      { property: "og:title", content: "Transparansi Penyaluran — RKI Bali" },
+      { property: "og:title", content: "Dampak & Penyaluran Donasi — RKI Bali" },
       { property: "og:description", content: "Laporan penyaluran donasi RKI Bali secara amanah." },
       { property: "og:url", content: "/transparansi" },
     ],
@@ -41,7 +41,7 @@ function TransparansiPage() {
           className="mx-auto max-w-3xl text-center"
         >
           <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-            Transparansi
+            Dampak & Penyaluran
           </span>
           <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-foreground text-balance md:text-5xl">
             Amanah lahir dari kejujuran.
@@ -52,41 +52,6 @@ function TransparansiPage() {
         </motion.div>
       </section>
 
-      {/* Financial Summary */}
-      <section className="container-rki pb-12">
-        <div className="grid gap-5 md:grid-cols-3">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="rounded-3xl bg-card p-6 ring-1 ring-border shadow-soft"
-          >
-            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Pemasukan Rutin</div>
-            <div className="mt-2 font-display text-2xl font-bold text-primary">{formatIDR(FINANCE.income)}</div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="rounded-3xl bg-card p-6 ring-1 ring-border shadow-soft"
-          >
-            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Kebutuhan Operasional</div>
-            <div className="mt-2 font-display text-2xl font-bold text-gold">{formatIDR(FINANCE.expense)}</div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-3xl bg-card p-6 ring-1 ring-border shadow-soft"
-          >
-            <div className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Kekurangan (Defisit)</div>
-            <div className="mt-2 font-display text-2xl font-bold text-foreground">{formatIDR(FINANCE.deficit)}</div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* Expense breakdown / Allocations */}
       <section className="container-rki py-12">

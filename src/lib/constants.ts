@@ -84,19 +84,6 @@ export const PROGRAMS = [
   },
 ];
 
-export const FINANCE = {
-  income: 7_450_000,
-  expense: 13_000_000,
-  deficit: 5_550_000,
-  expenseBreakdown: [
-    { label: "Honor Pengajar (3 cabang)", amount: 6_000_000 },
-    { label: "Sewa & Operasional Tempat", amount: 3_500_000 },
-    { label: "Konsumsi & Snack Santri", amount: 1_800_000 },
-    { label: "Perlengkapan Belajar (Iqro, buku, alat tulis)", amount: 1_200_000 },
-    { label: "Kegiatan Insidental & Hari Besar Islam", amount: 500_000 },
-  ],
-};
-
 export const DONOR_LIST = [
   { name: "Bapak A.R.", city: "Denpasar", amount: 500_000 },
   { name: "Ibu S.N.", city: "Sanur", amount: 250_000 },
@@ -127,12 +114,12 @@ export const TIERS = [
   {
     amount: 500_000,
     title: "PENGASUH",
-    benefit: "Mendukung honor pengajar & operasional 1 kelas TPQ.",
+    benefit: "Mendukung honor pengajar dan operasional 1 kelas TPQ.",
   },
   {
     amount: 1_000_000,
     title: "DONATUR UTAMA",
-    benefit: "Mendukung operasional penuh dan menjaga keberlangsungan 1 cabang RKI.",
+    benefit: "Menjaga keberlangsungan 1 cabang RKI secara penuh.",
     featured: true,
   },
 ];
@@ -174,7 +161,7 @@ export const NAV_LINKS = [
   { to: "/", label: "Beranda" },
   { to: "/tentang-kami", label: "Tentang Kami" },
   { to: "/program", label: "Program" },
-  { to: "/transparansi", label: "Transparansi" },
+  { to: "/transparansi", label: "Dampak & Penyaluran" },
   { to: "/galeri", label: "Galeri" },
   { to: "/donasi", label: "Donasi" },
 ] as const;
@@ -191,9 +178,9 @@ export const FOOTER_PREVIEWS: Record<string, { title: string; description: strin
       "Tiga program utama: TPQ Anak setiap hari kerja, Majelis Taklim Ibu setiap Sabtu, dan Yasinan Bapak setiap Kamis malam — di tiga cabang RKI.",
   },
   "/transparansi": {
-    title: "Transparansi",
+    title: "Dampak & Penyaluran Donasi",
     description:
-      "Setiap rupiah donasi dilaporkan dengan amanah. Kami berkomitmen menyalurkan kontribusi Anda tepat sasaran untuk program pendidikan santri.",
+      "Lihat bagaimana kontribusi Anda memberikan dampak nyata untuk pendidikan Al-Qur'an dan pembinaan umat.",
   },
   "/galeri": {
     title: "Galeri Kegiatan",
