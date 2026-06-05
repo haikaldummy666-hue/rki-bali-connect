@@ -126,36 +126,46 @@ export const TIERS = [
 
 export const HISTORY = [
   {
+    year: "Sebelum 2014",
+    title: "Lahir dari Kepedulian: Bapekis Bank Mandiri Bali",
+    body: "RKI bermula dari kepedulian dua ibu yang sama-sama bekerja di Bank Mandiri Bali — Bunda Mery dan Bu Diana (Mama Dian). Melihat kondisi umat Islam di Bali yang merupakan minoritas, dengan karyawan Muslim yang tersebar di berbagai cabang dan saling tidak mengenal, keduanya membentuk Bapekis (Badan Kerohanian Islam) Bank Mandiri Bali sebagai wadah berkumpul, pengajian, dan silaturahmi. Bunda Mery aktif sebagai bendahara sekaligus seksi kegiatan, sementara Bu Diana berperan sebagai penasehat. Kegiatan Bapekis berjalan cukup lama hingga Bunda Mery memutuskan resign pada 1 Juli 2014, yang bertepatan dengan bulan Ramadan.",
+  },
+  {
+    year: "1 Juli 2014",
+    title: "Momen Awal Mula RKI",
+    body: "Setelah resign, Bu Diana menghubungi Bunda Mery dan menitipkan infaq Ramadan dari Bapekis pusat Jakarta berupa Al-Qur'an, mukena, sajadah, peci, dan sarung untuk disalurkan ke perkampungan muslim yang kurang mampu. Dengan diantar mobil dan supir, Bunda Mery 'blusuk-blusuk' mencari kampung-kampung yang membutuhkan, hingga sampailah di sebuah perkampungan kos-kosan pendatang di pinggir kali. Di sana ia melihat kondisi yang sangat memprihatinkan: anak-anak tidak ada yang mengaji sama sekali, pelajaran agama di sekolah hanya seminggu sekali (kadang gurunya tidak hadir), banyak ibu yang berasal dari Bali dan mualaf, keluarga hidup 'kerja hari ini untuk makan hari ini', tinggal di kamar kos sempit (1–2 anak per kamar), dan lingkungan yang tidak mendukung pendidikan agama. Bunda Mery melaporkan: 'Bu, ini anak-anak ini nggak ngaji loh Bu… anak-anak itu buta loh sama agama nih.' Bu Diana menjawab: 'Gimana kalau kita bikin ini di sana bikin TPQ?'",
+  },
+  {
     year: "2014",
-    title: "Awal Mula",
-    body: "Didirikan pada 13 September 2014 di sebuah rumah kontrakan di Denpasar, dimulai dengan 14 santri kecil dan 7 ibu jamaah.",
+    title: "Pendirian TPQ & Majelis Taklim",
+    body: "Karena lokasinya adalah kawasan kos-kosan, TPQ pertama ditempatkan di kamar kos yang disewa. Awalnya hanya ada 14 murid. Bunda Mery juga melihat bahwa di kampung itu sebenarnya pernah ada pengajian — tetapi hanya berupa baca Yasin bersama tanpa ada ustadz/ustadzah yang memberikan ilmu, tanpa tanya jawab, tanpa materi, dan cara baca yang belum tentu benar. Karena itu, Bunda Mery mengusulkan agar selain TPQ untuk anak-anak, juga dibuat Majelis Taklim untuk ibu-ibu, agar ada ilmu yang benar-benar disampaikan. Sejak saat itu, TPQ dan Majelis Taklim mulai berjalan. Guru ngaji diberi honorarium setiap bulan agar tetap semangat mengajar dan tidak mencari pekerjaan lain. 'Guru ngaji kan juga manusia perlu uang. Kalau nggak dikasih honor ya dia kan mencari kerjaan lain…'",
   },
   {
-    year: "2016",
-    title: "RKI 1 Berkembang",
-    body: "Jumlah santri TPQ bertambah pesat. Kegiatan majelis taklim ibu menjadi rutin setiap pekan.",
+    year: "2014 – 2016",
+    title: "Sistem Pendanaan Awal",
+    body: "Pada awal berdiri, biaya operasional TPQ dan Majelis Taklim ditanggung bersama oleh rekan-rekan mantan Bapekis Bank Mandiri. Setiap bulan mereka mengumpulkan iuran (ada yang Rp100.000, ada yang Rp50.000). Rekening dibuka atas nama Bunda Mery dengan surat kuasa. Seiring waktu, banyak donatur yang pindah kerja atau pindah domisili, dan surat kuasa yang hanya berlaku 6 bulan atau 1 tahun pun habis masa berlakunya. Dampaknya, jumlah donatur terus menyusut.",
   },
   {
-    year: "2019",
-    title: "Lahirnya RKI 2",
-    body: "Cabang kedua dibuka untuk menjangkau anak-anak dhuafa di area baru di Denpasar.",
-  },
-  {
-    year: "2021",
-    title: "RKI 3 & Majelis Bapak",
-    body: "Cabang ketiga berdiri. Majelis taklim bapak (yasinan) menjadi program rutin tambahan.",
+    year: "2014 – Sekarang",
+    title: "Perkembangan RKI",
+    body: "Berkat ketekunan Bunda Mery dan Bu Diana, RKI terus berkembang hingga sekarang: 3 unit TPQ untuk anak-anak (kegiatan harian), 2 Majelis Taklim Ibu-Ibu (mingguan & bulanan), serta Majelis Taklim Bapak-Bapak aktif setiap malam Jumat. Kegiatan tahunan yang paling ditekankan adalah Tahun Baru Hijriah — dengan berbagai lomba dan acara menyenangkan, agar anak-anak tahu bahwa tahun baru umat Islam adalah Hijriah, bukan Masehi, demi menanamkan identitas Islam sejak dini. Sementara Idul Adha hanya dilaksanakan kurban biasa tanpa acara besar yang membebani kas.",
   },
   {
     year: "2022",
     title: "Legalitas Yayasan",
-    body: "Resmi bernaung di bawah Yayasan Dian Amal Insani (DAI) — memberi payung hukum dan tata kelola yang amanah.",
+    body: "Resmi bernaung di bawah Yayasan Dian Amal Insani (DAI) — memberi payung hukum yang sah dan tata kelola yang amanah. Setiap donasi tercatat, terlaporkan, dan tersalurkan sesuai amanah.",
   },
   {
     year: "Hari ini",
-    title: "150 Santri · 120 Jamaah · 3 Cabang",
-    body: "Melayani 150 santri TPQ, 80 ibu majelis taklim, dan 40 bapak yasinan dari tiga cabang RKI di Denpasar.",
+    title: "3 TPQ · 2 Majelis Taklim Ibu · Majelis Bapak Aktif",
+    body: "Melayani 150+ santri TPQ, 80+ ibu majelis taklim, dan 40+ bapak yasinan dari tiga cabang RKI di Denpasar — dengan tekad yang sama seperti hari pertama: agar tidak ada lagi anak-anak yang 'buta' terhadap agamanya.",
   },
 ];
+
+export const CHALLENGES = {
+  title: "Tantangan Pendanaan Saat Ini",
+  body: "Meskipun kegiatan semakin banyak dan berkembang, jumlah donatur saat ini hanya tersisa 7–8 orang (dari sebelumnya sekitar 30 orang). Akibatnya, RKI sering mengalami defisit setiap bulan. Biaya rutin untuk guru, sewa tempat, dan operasional kegiatan terus berjalan, sementara pemasukan semakin terbatas. Kami membutuhkan dukungan Anda — baik donasi rutin, dukungan operasional, maupun penyebaran informasi — agar RKI dapat terus berdiri untuk anak-anak dan ibu-ibu yang membutuhkan.",
+};
 
 export const NAV_LINKS = [
   { to: "/", label: "Beranda" },
