@@ -15,8 +15,8 @@ export const ORG = {
   parent: "Yayasan Dian Amal Insani (DAI)",
   founded: "13 September 2014",
   city: "Denpasar, Bali",
-  whatsapp: "6288268317901",
-  whatsappDisplay: "+62 882-6831-7901",
+  whatsapp: "6285737215321",
+  whatsappDisplay: "+62 857-3721-5321",
   email: "rkibali@yayasandai.org",
   bank: {
     name: "Bank Mandiri",
