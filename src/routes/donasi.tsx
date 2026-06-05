@@ -5,11 +5,19 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Copy, Check, Landmark, Send, Heart } from "lucide-react";
+import { Check, CheckCircle2, Copy, Landmark, Send, Heart, MessageCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { DonationTiers } from "@/components/home/DonationTiers";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { ORG, formatIDR } from "@/lib/constants";
@@ -51,6 +59,7 @@ type FormOutput = z.output<typeof schema>;
 
 function DonasiPage() {
   const [copied, setCopied] = useState(false);
+  const [pending, setPending] = useState<FormOutput | null>(null);
 
   const copyAccount = async () => {
     try {
@@ -69,21 +78,42 @@ function DonasiPage() {
     defaultValues: { name: "", email: "", amount: amount || 100_000, message: "" },
   });
 
-  const onSubmit = (raw: FormValues) => {
-    const v = schema.parse(raw) as FormOutput;
-    const text = [
-      "Assalamu'alaikum, saya ingin berdonasi ke RKI Bali.",
+  const buildMessage = (v: FormOutput, kind: "confirm" | "ask") => {
+    const head =
+      kind === "confirm"
+        ? "Assalamu'alaikum, saya ingin mengkonfirmasi donasi ke RKI Bali."
+        : "Assalamu'alaikum, saya ingin berdonasi ke RKI Bali.";
+    const tail =
+      kind === "confirm"
+        ? "Saya sudah melakukan transfer. Mohon konfirmasi diterima. Jazakumullahu khairan."
+        : "Mohon info nomor rekening dan tata caranya. Jazakumullahu khairan.";
+    return [
+      head,
       `Nama: ${v.name}`,
       `Email: ${v.email}`,
       `Nominal: ${formatIDR(v.amount)}`,
       v.message ? `Pesan: ${v.message}` : "",
-      "Mohon konfirmasi nomor rekening dan tata caranya. Terima kasih.",
+      tail,
     ]
       .filter(Boolean)
       .join("\n");
+  };
+
+  const openWhatsApp = (text: string) => {
     const url = `https://wa.me/${ORG.whatsapp}?text=${encodeURIComponent(text)}`;
     window.open(url, "_blank", "noopener,noreferrer");
-    toast.success("Membuka WhatsApp...", { description: "Konfirmasi donasi Anda di WhatsApp." });
+    toast.success("Membuka WhatsApp...", { description: "Pesan Anda sudah disiapkan di WhatsApp." });
+  };
+
+  const onSubmit = (raw: FormValues) => {
+    const v = schema.parse(raw) as FormOutput;
+    setPending(v);
+  };
+
+  const handleChoice = (kind: "confirm" | "ask") => {
+    if (!pending) return;
+    openWhatsApp(buildMessage(pending, kind));
+    setPending(null);
     form.reset();
   };
 
@@ -244,6 +274,81 @@ function DonasiPage() {
           description={`Tim RKI Bali siap menjawab via WhatsApp di ${ORG.whatsappDisplay}.`}
         />
       </section>
+
+      <Dialog open={pending !== null} onOpenChange={(open) => !open && setPending(null)}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle className="font-display text-xl">Konfirmasi Donasi</DialogTitle>
+            <DialogDescription>
+              Sebelum kami membuka WhatsApp, mohon pilih kondisi Anda saat ini agar pesan yang
+              terkirim lebih sesuai.
+            </DialogDescription>
+          </DialogHeader>
+
+          {pending && (
+            <div className="rounded-2xl bg-muted/60 p-4 text-sm">
+              <div className="grid grid-cols-3 gap-2 text-xs text-muted-foreground">
+                <span>Nama</span>
+                <span className="col-span-2 font-medium text-foreground">{pending.name}</span>
+                <span>Email</span>
+                <span className="col-span-2 font-medium text-foreground">{pending.email}</span>
+                <span>Nominal</span>
+                <span className="col-span-2 font-semibold text-primary">{formatIDR(pending.amount)}</span>
+              </div>
+            </div>
+          )}
+
+          <div className="grid gap-3">
+            <button
+              type="button"
+              onClick={() => handleChoice("confirm")}
+              className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-4 text-left transition hover:border-primary hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition group-hover:bg-primary group-hover:text-primary-foreground">
+                <CheckCircle2 className="h-5 w-5" />
+              </div>
+              <div className="flex-1">
+                <div className="font-display text-base font-semibold text-foreground">
+                  Saya sudah transfer
+                </div>
+                <div className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                  Kirim pesan konfirmasi agar donasi Anda segera diverifikasi oleh tim RKI.
+                </div>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => handleChoice("ask")}
+              className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-4 text-left transition hover:border-gold hover:bg-gold/5 focus:outline-none focus:ring-2 focus:ring-gold"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gold/15 text-gold-foreground transition group-hover:bg-gold group-hover:text-gold-foreground">
+                <MessageCircle className="h-5 w-5" />
+              </div>
+              <div className="flex-1">
+                <div className="font-display text-base font-semibold text-foreground">
+                  Saya belum transfer
+                </div>
+                <div className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                  Minta nomor rekening resmi dan tata cara transfer ke admin via WhatsApp.
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <DialogFooter className="sm:justify-start">
+            <Button
+              type="button"
+              variant="ghost"
+              onClick={() => setPending(null)}
+              className="rounded-full text-muted-foreground hover:text-foreground"
+            >
+              <XCircle className="mr-2 h-4 w-4" />
+              Batal
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }
