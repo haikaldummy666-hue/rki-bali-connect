@@ -57,7 +57,7 @@ export const PROGRAMS = [
     title: "TPQ Anak",
     short: "Pendidikan Al-Qur'an untuk anak-anak dhuafa & muallaf.",
     description:
-      "Belajar membaca Al-Qur'an, hafalan juz 'amma, akhlak, dan adab Islami bagi 150+ santri dari keluarga prasejahtera dan muallaf — gratis tanpa biaya.",
+      "Belajar membaca Al-Qur'an, hafalan juz 'amma, akhlak, dan adab Islami bagi 150+ santri dari keluarga prasejahtera dan muallaf - gratis tanpa biaya.",
     schedule: "Senin – Jumat · 15.30 – 17.00 WITA",
     image: programTpq,
     count: "150+ santri",
@@ -128,7 +128,7 @@ export const HISTORY = [
   {
     year: "Sebelum 2014",
     title: "Lahir dari Kepedulian: Bapekis Bank Mandiri Bali",
-    body: "RKI bermula dari kepedulian dua ibu yang sama-sama bekerja di Bank Mandiri Bali — Bunda Mery dan Bu Diana (Mama Dian). Melihat kondisi umat Islam di Bali yang merupakan minoritas, dengan karyawan Muslim yang tersebar di berbagai cabang dan saling tidak mengenal, keduanya membentuk Bapekis (Badan Kerohanian Islam) Bank Mandiri Bali sebagai wadah berkumpul, pengajian, dan silaturahmi. Bunda Mery aktif sebagai bendahara sekaligus seksi kegiatan, sementara Bu Diana berperan sebagai penasehat. Kegiatan Bapekis berjalan cukup lama hingga Bunda Mery memutuskan resign pada 1 Juli 2014, yang bertepatan dengan bulan Ramadan.",
+    body: "RKI bermula dari kepedulian dua ibu yang sama-sama bekerja di Bank Mandiri Bali - Bunda Mery dan Bu Diana (Mama Dian). Melihat kondisi umat Islam di Bali yang merupakan minoritas, dengan karyawan Muslim yang tersebar di berbagai cabang dan saling tidak mengenal, keduanya membentuk Bapekis (Badan Kerohanian Islam) Bank Mandiri Bali sebagai wadah berkumpul, pengajian, dan silaturahmi. Bunda Mery aktif sebagai bendahara sekaligus seksi kegiatan, sementara Bu Diana berperan sebagai penasehat. Kegiatan Bapekis berjalan cukup lama hingga Bunda Mery memutuskan resign pada 1 Juli 2014, yang bertepatan dengan bulan Ramadan.",
   },
   {
     year: "1 Juli 2014",
@@ -138,7 +138,7 @@ export const HISTORY = [
   {
     year: "2014",
     title: "Pendirian TPQ & Majelis Taklim",
-    body: "Karena lokasinya adalah kawasan kos-kosan, TPQ pertama ditempatkan di kamar kos yang disewa. Awalnya hanya ada 14 murid. Bunda Mery juga melihat bahwa di kampung itu sebenarnya pernah ada pengajian — tetapi hanya berupa baca Yasin bersama tanpa ada ustadz/ustadzah yang memberikan ilmu, tanpa tanya jawab, tanpa materi, dan cara baca yang belum tentu benar. Karena itu, Bunda Mery mengusulkan agar selain TPQ untuk anak-anak, juga dibuat Majelis Taklim untuk ibu-ibu, agar ada ilmu yang benar-benar disampaikan. Sejak saat itu, TPQ dan Majelis Taklim mulai berjalan. Guru ngaji diberi honorarium setiap bulan agar tetap semangat mengajar dan tidak mencari pekerjaan lain. 'Guru ngaji kan juga manusia perlu uang. Kalau nggak dikasih honor ya dia kan mencari kerjaan lain…'",
+    body: "Karena lokasinya adalah kawasan kos-kosan, TPQ pertama ditempatkan di kamar kos yang disewa. Awalnya hanya ada 14 murid. Bunda Mery juga melihat bahwa di kampung itu sebenarnya pernah ada pengajian - tetapi hanya berupa baca Yasin bersama tanpa ada ustadz/ustadzah yang memberikan ilmu, tanpa tanya jawab, tanpa materi, dan cara baca yang belum tentu benar. Karena itu, Bunda Mery mengusulkan agar selain TPQ untuk anak-anak, juga dibuat Majelis Taklim untuk ibu-ibu, agar ada ilmu yang benar-benar disampaikan. Sejak saat itu, TPQ dan Majelis Taklim mulai berjalan. Guru ngaji diberi honorarium setiap bulan agar tetap semangat mengajar dan tidak mencari pekerjaan lain. 'Guru ngaji kan juga manusia perlu uang. Kalau nggak dikasih honor ya dia kan mencari kerjaan lain…'",
   },
   {
     year: "2014 – 2016",
@@ -148,23 +148,23 @@ export const HISTORY = [
   {
     year: "2014 – Sekarang",
     title: "Perkembangan RKI",
-    body: "Berkat ketekunan Bunda Mery dan Bu Diana, RKI terus berkembang hingga sekarang: 3 unit TPQ untuk anak-anak (kegiatan harian), 2 Majelis Taklim Ibu-Ibu (mingguan & bulanan), serta Majelis Taklim Bapak-Bapak aktif setiap malam Jumat. Kegiatan tahunan yang paling ditekankan adalah Tahun Baru Hijriah — dengan berbagai lomba dan acara menyenangkan, agar anak-anak tahu bahwa tahun baru umat Islam adalah Hijriah, bukan Masehi, demi menanamkan identitas Islam sejak dini. Sementara Idul Adha hanya dilaksanakan kurban biasa tanpa acara besar yang membebani kas.",
+    body: "Berkat ketekunan Bunda Mery dan Bu Diana, RKI terus berkembang hingga sekarang: 3 unit TPQ untuk anak-anak (kegiatan harian), 2 Majelis Taklim Ibu-Ibu (mingguan & bulanan), serta Majelis Taklim Bapak-Bapak aktif setiap malam Jumat. Kegiatan tahunan yang paling ditekankan adalah Tahun Baru Hijriah - dengan berbagai lomba dan acara menyenangkan, agar anak-anak tahu bahwa tahun baru umat Islam adalah Hijriah, bukan Masehi, demi menanamkan identitas Islam sejak dini. Sementara Idul Adha hanya dilaksanakan kurban biasa tanpa acara besar yang membebani kas.",
   },
   {
     year: "2022",
     title: "Legalitas Yayasan",
-    body: "Resmi bernaung di bawah Yayasan Dian Amal Insani (DAI) — memberi payung hukum yang sah dan tata kelola yang amanah. Setiap donasi tercatat, terlaporkan, dan tersalurkan sesuai amanah.",
+    body: "Resmi bernaung di bawah Yayasan Dian Amal Insani (DAI) - memberi payung hukum yang sah dan tata kelola yang amanah. Setiap donasi tercatat, terlaporkan, dan tersalurkan sesuai amanah.",
   },
   {
     year: "Hari ini",
     title: "3 TPQ · 2 Majelis Taklim Ibu · Majelis Bapak Aktif",
-    body: "Melayani 150+ santri TPQ, 80+ ibu majelis taklim, dan 40+ bapak yasinan dari tiga cabang RKI di Denpasar — dengan tekad yang sama seperti hari pertama: agar tidak ada lagi anak-anak yang 'buta' terhadap agamanya.",
+    body: "Melayani 150+ santri TPQ, 80+ ibu majelis taklim, dan 40+ bapak yasinan dari tiga cabang RKI di Denpasar - dengan tekad yang sama seperti hari pertama: agar tidak ada lagi anak-anak yang 'buta' terhadap agamanya.",
   },
 ];
 
 export const CHALLENGES = {
   title: "Tantangan Pendanaan Saat Ini",
-  body: "Meskipun kegiatan semakin banyak dan berkembang, jumlah donatur saat ini hanya tersisa 7–8 orang (dari sebelumnya sekitar 30 orang). Akibatnya, RKI sering mengalami defisit setiap bulan. Biaya rutin untuk guru, sewa tempat, dan operasional kegiatan terus berjalan, sementara pemasukan semakin terbatas. Kami membutuhkan dukungan Anda — baik donasi rutin, dukungan operasional, maupun penyebaran informasi — agar RKI dapat terus berdiri untuk anak-anak dan ibu-ibu yang membutuhkan.",
+  body: "Meskipun kegiatan semakin banyak dan berkembang, jumlah donatur saat ini hanya tersisa 7–8 orang (dari sebelumnya sekitar 30 orang). Akibatnya, RKI sering mengalami defisit setiap bulan. Biaya rutin untuk guru, sewa tempat, dan operasional kegiatan terus berjalan, sementara pemasukan semakin terbatas. Kami membutuhkan dukungan Anda - baik donasi rutin, dukungan operasional, maupun penyebaran informasi - agar RKI dapat terus berdiri untuk anak-anak dan ibu-ibu yang membutuhkan.",
 };
 
 export const NAV_LINKS = [
@@ -185,7 +185,7 @@ export const FOOTER_PREVIEWS: Record<string, { title: string; description: strin
   "/program": {
     title: "Program Kegiatan",
     description:
-      "Tiga program utama: TPQ Anak setiap hari kerja, Majelis Taklim Ibu setiap Sabtu, dan Yasinan Bapak setiap Kamis malam — di tiga cabang RKI.",
+      "Tiga program utama: TPQ Anak setiap hari kerja, Majelis Taklim Ibu setiap Sabtu, dan Yasinan Bapak setiap Kamis malam - di tiga cabang RKI.",
   },
   "/transparansi": {
     title: "Dampak & Penyaluran Donasi",
@@ -200,7 +200,7 @@ export const FOOTER_PREVIEWS: Record<string, { title: string; description: strin
   "/donasi": {
     title: "Donasi",
     description:
-      "Jadi donatur tetap mulai dari Rp50.000/bulan. Donasi melalui Bank Mandiri a.n Mery Lusiana / Ledy Yuliawati — disalurkan amanah untuk para santri.",
+      "Jadi donatur tetap mulai dari Rp50.000/bulan. Donasi melalui Bank Mandiri a.n Mery Lusiana / Ledy Yuliawati - disalurkan amanah untuk para santri.",
   },
 };
 
