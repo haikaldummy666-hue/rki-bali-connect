@@ -11,7 +11,7 @@ export const Route = createFileRoute("/tentang-kami")({
       {
         name: "description",
         content:
-          "Perjalanan RKI Bali: bermula dari Bapekis Bank Mandiri Bali dan kepeduliaan Ibu Mery & Ibu Diana, hingga kini melayani 3 TPQ, 2 Majelis Taklim Ibu, dan Majelis Taklim Bapak di Denpasar.",
+          "Perjalanan RKI Bali: bermula dari Bapekis Bank Mandiri Bali dan kepeduliaan Ibu Diana & Ibu Mery, hingga kini melayani 3 TPQ, 2 Majelis Taklim Ibu, dan Majelis Taklim Bapak di Denpasar.",
       },
       { property: "og:title", content: "Tentang Kami — RKI Bali" },
       {
@@ -68,12 +68,12 @@ function TentangKamiPage() {
             Cerita Pendiri
           </div>
           <h2 className="mt-2 font-display text-2xl font-bold text-foreground md:text-3xl">
-            Ibu Mery & Ibu Diana
+            Ibu Diana & Ibu Mery
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
             Pendirian RKI Bali tidak lepas dari peran dua sosok yang aktif dalam{" "}
             <strong className="text-foreground">Bapekis (Badan Kerohanian Islam) Bank Mandiri
-            Bali</strong>, yaitu Ibu Mery dan Ibu Diana. Menyadari bahwa umat Islam di Bali
+            Bali</strong>, yaitu Ibu Diana dan Ibu Mery. Menyadari bahwa umat Islam di Bali
             merupakan kelompok minoritas dengan karyawan Muslim yang tersebar di berbagai
             cabang dan sulit saling mengenal, keduanya sepakat membentuk Bapekis sebagai wadah
             resmi untuk pengajian, pembinaan rohani, dan penguatan silaturahmi. Dalam struktur
