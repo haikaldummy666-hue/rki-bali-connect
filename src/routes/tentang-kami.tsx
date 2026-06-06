@@ -68,18 +68,17 @@ function TentangKamiPage() {
             Cerita Pendiri
           </div>
           <h2 className="mt-2 font-display text-2xl font-bold text-foreground md:text-3xl">
-            Bunda Mery, Ibu Dian & Bapak Kis
+            Bunda Mery & Ibu Dian
           </h2>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Pendirian RKI Bali tidak lepas dari peran tiga sosok yang aktif dalam{" "}
+            Pendirian RKI Bali tidak lepas dari peran dua sosok yang aktif dalam{" "}
             <strong className="text-foreground">Bapekis (Badan Kerohanian Islam) Bank Mandiri
-            Bali</strong>, yaitu Ibu Mery Lusiana (Bunda Mery), Ibu Diana (Ibu Dian), dan Bapak
-            Kis. Menyadari bahwa umat Islam di Bali merupakan kelompok minoritas dengan
-            karyawan Muslim yang tersebar di berbagai cabang dan sulit saling mengenal, mereka
-            sepakat membentuk Bapekis sebagai wadah resmi untuk pengajian, pembinaan rohani,
-            dan penguatan silaturahmi. Dalam struktur organisasi Bapekis, Ibu Dian dipercaya
-            mengelola kegiatan di wilayah Bali, Bunda Mery menjalankan fungsi bendahara, dan
-            Bapak Kis berperan sebagai penasehat Bunda Mery.
+            Bali</strong>, yaitu Bunda Mery dan Ibu Dian. Menyadari bahwa umat Islam di Bali
+            merupakan kelompok minoritas dengan karyawan Muslim yang tersebar di berbagai
+            cabang dan sulit saling mengenal, keduanya sepakat membentuk Bapekis sebagai wadah
+            resmi untuk pengajian, pembinaan rohani, dan penguatan silaturahmi. Dalam struktur
+            organisasi Bapekis, Ibu Dian dipercaya mengelola kegiatan di wilayah Bali,
+            sementara Bunda Mery menjalankan fungsi bendahara.
           </p>
         </motion.div>
       </section>
