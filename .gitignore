@@ -28,6 +28,9 @@ dist-ssr
 .DS_Store
 *.suo
 *.ntvs*
+
+# Source asset folder (raw uploads)
+kegiatan baru rki bali/
 *.njsproj
 *.sln
 *.sw?

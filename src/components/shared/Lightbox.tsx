@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -6,6 +6,7 @@ export interface LightboxItem {
   src: string;
   alt?: string;
   caption?: string;
+  type?: "image" | "video";
 }
 
 interface LightboxProps {
@@ -20,6 +21,7 @@ export function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProp
   const open = index !== null;
   const current = index !== null ? items[index] : null;
   const hasMultiple = items.length > 1;
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
@@ -31,8 +33,15 @@ export function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProp
     [open, onClose, onPrev, onNext],
   );
 
+  // Pause + reset video on close
   useEffect(() => {
-    if (!open) return;
+    if (!open) {
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+      return;
+    }
     document.addEventListener("keydown", handleKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
@@ -41,6 +50,16 @@ export function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProp
       document.body.style.overflow = prevOverflow;
     };
   }, [open, handleKey]);
+
+  // Pause video when switching items
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [current?.src]);
+
+  const isVideo = current?.type === "video";
 
   return (
     <AnimatePresence>
@@ -84,7 +103,7 @@ export function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProp
                 e.stopPropagation();
                 onPrev();
               }}
-              aria-label="Gambar sebelumnya"
+              aria-label="Item sebelumnya"
               className="absolute left-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/20 transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-gold md:left-5 md:h-12 md:w-12"
             >
               <ChevronLeft className="h-6 w-6 md:h-7 md:w-7" />
@@ -99,14 +118,14 @@ export function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProp
                 e.stopPropagation();
                 onNext();
               }}
-              aria-label="Gambar berikutnya"
+              aria-label="Item berikutnya"
               className="absolute right-2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/20 transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-gold md:right-5 md:h-12 md:w-12"
             >
               <ChevronRight className="h-6 w-6 md:h-7 md:w-7" />
             </button>
           )}
 
-          {/* Image */}
+          {/* Media */}
           <motion.figure
             key={current.src}
             initial={{ opacity: 0, scale: 0.96 }}
@@ -116,11 +135,22 @@ export function Lightbox({ items, index, onClose, onPrev, onNext }: LightboxProp
             onClick={(e) => e.stopPropagation()}
             className="relative mx-3 flex max-h-[90vh] max-w-[95vw] flex-col items-center"
           >
-            <img
-              src={current.src}
-              alt={current.alt ?? ""}
-              className="max-h-[80vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
-            />
+            {isVideo ? (
+              <video
+                ref={videoRef}
+                src={current.src}
+                controls
+                autoPlay
+                playsInline
+                className="max-h-[80vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            ) : (
+              <img
+                src={current.src}
+                alt={current.alt ?? ""}
+                className="max-h-[80vh] w-auto max-w-full rounded-xl object-contain shadow-2xl"
+              />
+            )}
             {current.caption && (
               <figcaption className="mt-3 max-w-2xl text-center text-sm text-white/85">
                 {current.caption}

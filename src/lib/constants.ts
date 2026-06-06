@@ -9,6 +9,25 @@ import previewTransparansi from "@/assets/Foto Bangunan/Picture3.webp";
 import previewGaleri from "@/assets/Foto Kegiatan TPQ RKI/Picture15.webp";
 import previewDonasi from "@/assets/Foto Bangunan/Picture4.webp";
 import logoImg from "@/assets/logo.png";
+
+// New TPQ photos
+import tpqAnakPengajian from "@/assets/Foto Kegiatan TPQ RKI/anak_anak_pengajian.jpeg";
+import tpqBaru from "@/assets/Foto Kegiatan TPQ RKI/kegiatan_tpq_rki_baru.jpeg";
+import tpqBaru1 from "@/assets/Foto Kegiatan TPQ RKI/kegiatan_tpq_rki_baru1.jpeg";
+
+// Hafalan videos
+import hafalanVideo from "@/assets/Hafalan/hafalan1.mp4";
+
+// Pengajian Anak-Anak
+import pengajianFoto from "@/assets/Pengajian Anak-Anak/kegiatan_mengaji.jpeg";
+import pengajianVideo1 from "@/assets/Pengajian Anak-Anak/kegiatan_mengaji1.mp4";
+import pengajianVideo2 from "@/assets/Pengajian Anak-Anak/kegiatan_mengaji2.mp4";
+
+// Praktik Sholat
+import praktikSholatFoto1 from "@/assets/Praktik Sholat/praktik_sholat.jpeg";
+import praktikSholatFoto2 from "@/assets/Praktik Sholat/praktik_sholat2.jpeg";
+import praktikSholatVideo1 from "@/assets/Praktik Sholat/praktik_sholat1.mp4";
+
 export const ORG = {
   name: "Rumah Kajian Islami Bali",
   short: "RKI Bali",
@@ -30,10 +49,27 @@ export const ASSETS = {
   logo: logoImg,
   programs: { tpq: programTpq, ibu: programIbu, bapak: programBapak },
   gallery: [
-    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan TPQ RKI/*.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'tpq' })),
-    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{37,38}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'ibu' })),
-    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{39,40}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bapak' })),
-    ...(Object.values(import.meta.glob('@/assets/Foto Bangunan/Picture{2,3,4}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bangunan' }))
+    // TPQ (existing webp photos + new jpeg photos)
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan TPQ RKI/*.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'tpq', type: 'image' as const })),
+    { src: tpqAnakPengajian, cat: 'tpq', type: 'image' as const },
+    { src: tpqBaru, cat: 'tpq', type: 'image' as const },
+    { src: tpqBaru1, cat: 'tpq', type: 'image' as const },
+    // Majelis Ibu
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{37,38}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'ibu', type: 'image' as const })),
+    // Majelis Bapak
+    ...(Object.values(import.meta.glob('@/assets/Foto Kegiatan Majelis Taklim Ibu-Ibu dan Bapak-Bapak/Picture{39,40}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bapak', type: 'image' as const })),
+    // Bangunan
+    ...(Object.values(import.meta.glob('@/assets/Foto Bangunan/Picture{2,3,4}.webp', { eager: true, query: '?url', import: 'default' })) as string[]).map(src => ({ src, cat: 'bangunan', type: 'image' as const })),
+    // Hafalan (videos)
+    { src: hafalanVideo, cat: 'hafalan', type: 'video' as const },
+    // Pengajian Anak-Anak
+    { src: pengajianFoto, cat: 'pengajian', type: 'image' as const },
+    { src: pengajianVideo1, cat: 'pengajian', type: 'video' as const },
+    { src: pengajianVideo2, cat: 'pengajian', type: 'video' as const },
+    // Praktik Sholat
+    { src: praktikSholatFoto1, cat: 'praktik-sholat', type: 'image' as const },
+    { src: praktikSholatFoto2, cat: 'praktik-sholat', type: 'image' as const },
+    { src: praktikSholatVideo1, cat: 'praktik-sholat', type: 'video' as const },
   ],
   preview: {
     "/tentang-kami": previewTentang,
@@ -126,39 +162,44 @@ export const TIERS = [
 
 export const HISTORY = [
   {
-    year: "Sebelum 2014",
-    title: "Lahir dari Kepedulian: Bapekis Bank Mandiri Bali",
-    body: "RKI bermula dari kepedulian dua ibu yang sama-sama bekerja di Bank Mandiri Bali - Bunda Mery dan Bu Diana (Mama Dian). Melihat kondisi umat Islam di Bali yang merupakan minoritas, dengan karyawan Muslim yang tersebar di berbagai cabang dan saling tidak mengenal, keduanya membentuk Bapekis (Badan Kerohanian Islam) Bank Mandiri Bali sebagai wadah berkumpul, pengajian, dan silaturahmi. Bunda Mery aktif sebagai bendahara sekaligus seksi kegiatan, sementara Bu Diana berperan sebagai penasehat. Kegiatan Bapekis berjalan cukup lama hingga Bunda Mery memutuskan resign pada 1 Juli 2014, yang bertepatan dengan bulan Ramadan.",
+    year: "Pra-2014",
+    title: "Latar Belakang & Cikal Bakal",
+    body: "Rumah Kajian Islami (RKI) Bali lahir dari inisiatif sosial keagamaan yang diprakarsai oleh dua karyawan Muslim Bank Mandiri Bali, yaitu Ibu Mery Lusiana (Bunda Mery) dan Ibu Diana (Mama Dian). Kepedulian mereka bermula dari kenyataan bahwa umat Islam di Bali merupakan kelompok minoritas, dengan karyawan Muslim yang tersebar di berbagai cabang sehingga sulit saling mengenal dan bertemu. Menjawab kondisi tersebut, keduanya membentuk Bapekis (Badan Kerohanian Islam) Bank Mandiri Bali sebagai wadah resmi untuk kegiatan pengajian, pembinaan rohani, dan penguatan silaturahmi antar-karyawan. Bunda Mery dipercaya sebagai bendahara dan seksi kegiatan, sedangkan Bu Diana berperan sebagai penasehat. Kegiatan Bapekis berlangsung secara konsisten hingga Bunda Mery memutuskan untuk mengakhiri masa kerjanya di Bank Mandiri pada 1 Juli 2014, sebuah momentum yang kemudian menjadi titik awal berdirinya RKI.",
   },
   {
     year: "1 Juli 2014",
-    title: "Momen Awal Mula RKI",
-    body: "Setelah resign, Bu Diana menghubungi Bunda Mery dan menitipkan infaq Ramadan dari Bapekis pusat Jakarta berupa Al-Qur'an, mukena, sajadah, peci, dan sarung untuk disalurkan ke perkampungan muslim yang kurang mampu. Dengan diantar mobil dan supir, Bunda Mery 'blusuk-blusuk' mencari kampung-kampung yang membutuhkan, hingga sampailah di sebuah perkampungan kos-kosan pendatang di pinggir kali. Di sana ia melihat kondisi yang sangat memprihatinkan: anak-anak tidak ada yang mengaji sama sekali, pelajaran agama di sekolah hanya seminggu sekali (kadang gurunya tidak hadir), banyak ibu yang berasal dari Bali dan mualaf, keluarga hidup 'kerja hari ini untuk makan hari ini', tinggal di kamar kos sempit (1–2 anak per kamar), dan lingkungan yang tidak mendukung pendidikan agama. Bunda Mery melaporkan: 'Bu, ini anak-anak ini nggak ngaji loh Bu… anak-anak itu buta loh sama agama nih.' Bu Diana menjawab: 'Gimana kalau kita bikin ini di sana bikin TPQ?'",
+    title: "Titik Tolak Pendirian",
+    body: "Pasca-resign, Bu Diana menyampaikan amanah dari Bapekis pusat Jakarta berupa paket infaq Ramadan yang terdiri dari Al-Qur'an, mukena, sajadah, peci, dan sarung, untuk disalurkan kepada komunitas muslim prasejahtera. Meskipun telah tidak aktif di Bank Mandiri, Bunda Mery dipercaya kembali untuk melakukan penyaluran karena rekam jejaknya dalam distribusi bantuan. Pendampingan dilakukan menggunakan kendaraan dan supir yang difasilitasi, sehingga proses distribusi dapat menjangkau titik-titik yang lebih luas. Dari kegiatan inilah ditemukan sebuah pemukiman padat yang menjadi cikal bakal lokasi utama kegiatan RKI hingga saat ini.",
   },
   {
     year: "2014",
-    title: "Pendirian TPQ & Majelis Taklim",
-    body: "Karena lokasinya adalah kawasan kos-kosan, TPQ pertama ditempatkan di kamar kos yang disewa. Awalnya hanya ada 14 murid. Bunda Mery juga melihat bahwa di kampung itu sebenarnya pernah ada pengajian - tetapi hanya berupa baca Yasin bersama tanpa ada ustadz/ustadzah yang memberikan ilmu, tanpa tanya jawab, tanpa materi, dan cara baca yang belum tentu benar. Karena itu, Bunda Mery mengusulkan agar selain TPQ untuk anak-anak, juga dibuat Majelis Taklim untuk ibu-ibu, agar ada ilmu yang benar-benar disampaikan. Sejak saat itu, TPQ dan Majelis Taklim mulai berjalan. Guru ngaji diberi honorarium setiap bulan agar tetap semangat mengajar dan tidak mencari pekerjaan lain. 'Guru ngaji kan juga manusia perlu uang. Kalau nggak dikasih honor ya dia kan mencari kerjaan lain…'",
+    title: "Pendirian TPQ Pertama",
+    body: "Hasil asesmen lapangan menemukan kondisi yang memerlukan intervensi pendidikan agama secara segera: mayoritas anak-anak di kawasan tersebut belum pernah mendapatkan bimbingan mengaji, pembelajaran agama di sekolah formal hanya tersedia satu kali seminggu (dan sering tidak terlaksana karena ketidakhadiran guru), sebagian besar keluarga berasal dari latar belakang ekonomi prasejahtera, dan terdapat cukup banyak ibu yang berstatus mualaf atau berasal dari latar belakang budaya Bali. Merespon temuan tersebut, didirikanlah Taman Pendidikan Al-Qur'an (TPQ) pertama di sebuah kamar kos yang disewa, dengan 14 murid awal.",
+  },
+  {
+    year: "2014",
+    title: "Pelengkap: Majelis Taklim Ibu",
+    body: "Pada periode yang sama, kawasan tersebut sebenarnya telah memiliki kegiatan pengajian berupa pembacaan Surat Yasin secara bersama. Namun, kegiatan tersebut belum memenuhi standar pembelajaran yang efektif karena tidak dibersamai oleh pengajar, tidak ada sesi tanya jawab, tidak ada kurikulum materi, dan kualitas bacaan belum dapat dijamin. Berdasarkan hasil observasi tersebut, RKI kemudian menambahkan program Majelis Taklim khusus untuk para ibu, khususnya ibu mualaf, dengan kurikulum, pengajar tetap, serta honorarium bulanan bagi para guru agar fokus mengajar dapat terjaga.",
   },
   {
     year: "2014 – 2016",
-    title: "Sistem Pendanaan Awal",
-    body: "Pada awal berdiri, biaya operasional TPQ dan Majelis Taklim ditanggung bersama oleh rekan-rekan mantan Bapekis Bank Mandiri. Setiap bulan mereka mengumpulkan iuran (ada yang Rp100.000, ada yang Rp50.000). Rekening dibuka atas nama Bunda Mery dengan surat kuasa. Seiring waktu, banyak donatur yang pindah kerja atau pindah domisili, dan surat kuasa yang hanya berlaku 6 bulan atau 1 tahun pun habis masa berlakunya. Dampaknya, jumlah donatur terus menyusut.",
+    title: "Model Pendanaan Awal",
+    body: "Pada fase awal operasional, seluruh biaya kegiatan TPQ dan Majelis Taklim ditanggung secara swadaya oleh jejaring mantan anggota Bapekis Bank Mandiri Bali, melalui iuran bulanan sukarela dengan nominal bervariasi (Rp50.000 hingga Rp100.000 per bulan). Rekening pengelolaan dibuka atas nama Bunda Mery dengan mekanisme surat kuasa. Seiring berjalannya waktu, model pendanaan ini menghadapi tantangan berupa mobilitas donatur yang tinggi, banyak yang pindah tugas atau domisili, serta masa berlaku surat kuasa yang terbatas. Kondisi ini berdampak pada menurunnya basis donatur secara bertahap.",
   },
   {
     year: "2014 – Sekarang",
-    title: "Perkembangan RKI",
-    body: "Berkat ketekunan Bunda Mery dan Bu Diana, RKI terus berkembang hingga sekarang: 3 unit TPQ untuk anak-anak (kegiatan harian), 2 Majelis Taklim Ibu-Ibu (mingguan & bulanan), serta Majelis Taklim Bapak-Bapak aktif setiap malam Jumat. Kegiatan tahunan yang paling ditekankan adalah Tahun Baru Hijriah - dengan berbagai lomba dan acara menyenangkan, agar anak-anak tahu bahwa tahun baru umat Islam adalah Hijriah, bukan Masehi, demi menanamkan identitas Islam sejak dini. Sementara Idul Adha hanya dilaksanakan kurban biasa tanpa acara besar yang membebani kas.",
+    title: "Portofolio Program & Kegiatan",
+    body: "Hingga saat ini, RKI mengelola tiga unit TPQ untuk anak-anak dengan jadwal harian, dua Majelis Taklim khusus ibu dengan jadwal mingguan dan bulanan, serta satu Majelis Taklim Bapak-Bapak yang aktif setiap pekan. Program unggulan tahunan difokuskan pada peringatan Tahun Baru Hijriah melalui serangkaian lomba dan kegiatan tematik yang ditujukan untuk menanamkan identitas Islam sejak usia dini, sementara peringatan Idul Adha dilaksanakan dalam format sederhana berupa kegiatan kurban. Pendekatan ini dirancang agar beban biaya operasional tetap terkendali.",
   },
   {
     year: "2022",
-    title: "Legalitas Yayasan",
-    body: "Resmi bernaung di bawah Yayasan Dian Amal Insani (DAI) - memberi payung hukum yang sah dan tata kelola yang amanah. Setiap donasi tercatat, terlaporkan, dan tersalurkan sesuai amanah.",
+    title: "Penguatan Kelembagaan",
+    body: "RKI secara resmi bernaung di bawah Yayasan Dian Amal Insani (DAI) sebagai badan hukum payung. Status kelembagaan ini memberikan kepastian hukum, tata kelola organisasi yang terstruktur, serta mekanisme akuntabilitas dan transparansi atas seluruh penerimaan dan penyaluran dana. Setiap kontribusi donatur tercatat dan dapat dilaporkan secara periodik sesuai standar yayasan.",
   },
   {
-    year: "Hari ini",
-    title: "3 TPQ · 2 Majelis Taklim Ibu · Majelis Bapak Aktif",
-    body: "Melayani 150+ santri TPQ, 80+ ibu majelis taklim, dan 40+ bapak yasinan dari tiga cabang RKI di Denpasar - dengan tekad yang sama seperti hari pertama: agar tidak ada lagi anak-anak yang 'buta' terhadap agamanya.",
+    year: "Hari Ini",
+    title: "Cakupan Layanan Saat Ini",
+    body: "RKI saat ini melayani lebih dari 150 santri TPQ, 80 jamaah Majelis Taklim Ibu, dan 40 jamaah Majelis Taklim Bapak yang tersebar di tiga cabang di wilayah Denpasar. Seluruh layanan diberikan secara gratis dengan dukungan tenaga pengajar, sarana kegiatan, dan operasional yang berkelanjutan.",
   },
 ];
 
